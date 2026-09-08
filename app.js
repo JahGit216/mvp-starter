@@ -1,6 +1,6 @@
 import { recordLocalAction } from "./experiment.js";
 
-const storageKey = "busfin4215-mvp-demo-actions";
+const storageKey = "rentguard-mvp-local-actions";
 const countElement = document.querySelector("#intent-count");
 const dialog = document.querySelector("#response-dialog");
 
@@ -21,7 +21,10 @@ for (const button of document.querySelectorAll("[data-event]")) {
   });
 }
 
-document.querySelector("[data-close]").addEventListener("click", () => dialog.close());
+for (const button of document.querySelectorAll("[data-close]")) {
+  button.addEventListener("click", () => dialog.close());
+}
+
 document.querySelector("#reset").addEventListener("click", () => {
   localStorage.removeItem(storageKey);
   renderCount();
